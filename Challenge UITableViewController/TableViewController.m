@@ -1,18 +1,18 @@
 //
-//  TableControllerTableViewController.m
+//  TableViewController.m
 //  Challenge UITableViewController
 //
 //  Created by Mac Madrid on 11/10/17.
 //  Copyright © 2017 Mac Madrid. All rights reserved.
 //
 
-#import "TableControllerTableViewController.h"
+#import "TableViewController.h"
 
-@interface TableControllerTableViewController ()
+@interface TableViewController ()
 
 @end
 
-@implementation TableControllerTableViewController
+@implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,26 +38,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    if (section == 0){
+    if (section == 0) {
         return 2;
-    } else if (section == 1) {
+    } else if (section == 1){
         return 1;
-    } else {
+    } else{
         return 3;
     }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
-    if (indexPath.section == 0){
-        cell.textLabel.text = @"I am in section 1";
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"I am in section 0";
         cell.backgroundColor = [UIColor redColor];
+
     } else if (indexPath.section == 1) {
         cell.textLabel.text = @"another section";
         cell.backgroundColor = [UIColor blueColor];
+
     } else {
-        [NSString stringWithFormat:@"cell %@",indexPath];
+        cell.textLabel.text = [NSString stringWithFormat:@"cell %i", indexPath.row];
         cell.backgroundColor = [UIColor yellowColor];
     }
     
