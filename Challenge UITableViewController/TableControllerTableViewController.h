@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TableControllerTableViewController.h
 //  Challenge UITableViewController
 //
 //  Created by Mac Madrid on 11/10/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TableControllerTableViewController : UITableViewController
 
 @end
-
